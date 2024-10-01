@@ -14,7 +14,7 @@ public final class FreteValueMap {
             "Sul", 17.30
     );
 
-    public static Double getFreteByRegion(@NotNull String region){
+    public static Double getFreteByRegion(@NotNull final String region){
         return regionMap.get(region) == null ? 0.0 : regionMap.get(region);
     }
 }

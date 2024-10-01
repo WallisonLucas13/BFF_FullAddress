@@ -1,4 +1,4 @@
-package com.example.api.bff.domain.address.models;
+package com.example.api.bff.domain.addressPreview.models;
 
 import lombok.Builder;
 import lombok.Data;

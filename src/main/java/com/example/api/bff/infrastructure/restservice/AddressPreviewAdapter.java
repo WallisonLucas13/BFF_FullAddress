@@ -1,7 +1,7 @@
 package com.example.api.bff.infrastructure.restservice;
 
-import com.example.api.bff.domain.address.models.AddressPreview;
-import com.example.api.bff.domain.address.ports.AddressPreviewPort;
+import com.example.api.bff.domain.addressPreview.models.AddressPreview;
+import com.example.api.bff.domain.addressPreview.ports.AddressPreviewPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -17,7 +17,7 @@ public class AddressPreviewAdapter extends RestClientAdapter implements AddressP
     private final String BFF_ADDRESS_API_URL;
 
     public AddressPreviewAdapter(final RestClient restClient,
-                                 @Value("${bff.address.api.url}") final String BFF_ADDRESS_API_URL){
+                                 @Value("${bff.addressPreview.api.url}") final String BFF_ADDRESS_API_URL){
         super(restClient);
         this.BFF_ADDRESS_API_URL = BFF_ADDRESS_API_URL;
     }

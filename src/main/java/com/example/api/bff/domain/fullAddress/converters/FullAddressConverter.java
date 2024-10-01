@@ -1,6 +1,6 @@
 package com.example.api.bff.domain.fullAddress.converters;
 
-import com.example.api.bff.domain.address.models.AddressPreview;
+import com.example.api.bff.domain.addressPreview.models.AddressPreview;
 import com.example.api.bff.domain.fullAddress.models.FullAddress;
 import com.example.api.bff.domain.region.models.RegionContent;
 

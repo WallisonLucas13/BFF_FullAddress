@@ -1,4 +1,4 @@
-package com.example.api.bff.infrastructure.api.v1.responses;
+package com.example.api.bff.infrastructure.api.responses;
 
 import lombok.Getter;
 import lombok.Setter;

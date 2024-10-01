@@ -1,4 +1,4 @@
-package com.example.api.bff.infrastructure.api.v1.doc;
+package com.example.api.bff.infrastructure.api.controllers.v1.doc;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -20,5 +20,5 @@ public interface FullAddressControllerSwagger {
             @ApiResponse(responseCode = "500", description = "Falha no servidor!")
     }
     )
-    ResponseEntity<Object> findFullAddressByCep(@Valid String cep) throws URISyntaxException;
+    ResponseEntity<Object> findFullAddressByCep(String cep) throws URISyntaxException;
 }

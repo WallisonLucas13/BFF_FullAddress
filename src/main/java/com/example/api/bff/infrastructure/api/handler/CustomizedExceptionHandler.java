@@ -1,6 +1,6 @@
-package com.example.api.bff.infrastructure.api.v1.handler;
+package com.example.api.bff.infrastructure.api.handler;
 
-import com.example.api.bff.infrastructure.api.v1.responses.ErrorResponse;
+import com.example.api.bff.infrastructure.api.responses.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

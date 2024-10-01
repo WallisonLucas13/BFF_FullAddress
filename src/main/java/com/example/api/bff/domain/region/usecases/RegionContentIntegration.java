@@ -1,11 +1,14 @@
 package com.example.api.bff.domain.region.usecases;
 
 import com.example.api.bff.domain.region.models.RegionContent;
-import jakarta.validation.constraints.NotNull;
 
 import java.net.URISyntaxException;
 
 public interface RegionContentIntegration {
-
-    RegionContent findRegionContentByUf(@NotNull String uf) throws URISyntaxException;
+    /**
+     * @param uf sigla do Estado.
+     * @return RegionContent objeto com a região completa.
+     * @throws URISyntaxException
+     */
+    RegionContent findRegionContentByUf(String uf) throws URISyntaxException;
 }
