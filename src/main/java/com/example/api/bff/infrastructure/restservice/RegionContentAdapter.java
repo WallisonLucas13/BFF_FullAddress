@@ -25,6 +25,8 @@ public class RegionContentAdapter extends RestClientAdapter implements RegionCon
     @Override
     public RegionContent findRegionContentByUf(final String uf) throws URISyntaxException {
         var uri = new URI(String.format("%s%s", this.BFF_REGION_API_URL, uf));
+
+        log.info("Buscando informações de Região...");
         return this.get(uri, RegionContent.class);
     }
 }
