@@ -2,7 +2,7 @@ package com.example.api.bff.domain.fullAddress.usecases;
 
 import com.example.api.bff.domain.addressPreview.models.AddressPreview;
 import com.example.api.bff.domain.addressPreview.usecases.AddressPreviewIntegration;
-import com.example.api.bff.domain.frete.FreteValueMap;
+import com.example.api.bff.domain.frete.usecases.FreteService;
 import com.example.api.bff.domain.fullAddress.converters.FullAddressConverter;
 import com.example.api.bff.domain.fullAddress.models.FullAddress;
 import com.example.api.bff.domain.region.models.RegionContent;
@@ -31,7 +31,7 @@ public class FullAddressIntegrationImpl implements FullAddressIntegration{
                 .inputToModel(addressPreview, regionContent);
 
         //Define o valor do frete de acordo com a Região encontrada
-        fullAddress.setFrete(FreteValueMap.getFreteByRegion(fullAddress.getRegion()));
+        fullAddress.setFrete(FreteService.getFreteByRegion(fullAddress.getRegion()));
         return fullAddress;
     }
 }

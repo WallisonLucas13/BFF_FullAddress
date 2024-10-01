@@ -1,10 +1,10 @@
-package com.example.api.bff.domain.frete;
+package com.example.api.bff.domain.frete.usecases;
 
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Map;
 
-public final class FreteValueMap {
+public final class FreteService {
 
     private static final Map<String, Double> regionMap = Map.of(
             "Sudeste", 7.85,
