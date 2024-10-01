@@ -1,46 +1,30 @@
 package com.example.api.bff.infrastructure.restservice;
 
-import com.example.api.bff.domain.region.inputs.RegionContentInput;
 import com.example.api.bff.domain.region.models.RegionContent;
 import com.example.api.bff.domain.region.ports.RegionContentPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClient;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Objects;
 
 @Component
 @Slf4j
-public class RegionContentAdapter implements RegionContentPort {
-
-    private final RestTemplate restTemplate;
+public class RegionContentAdapter extends RestClientAdapter implements RegionContentPort {
 
     private final String BFF_REGION_API_URL;
 
-    public RegionContentAdapter(RestTemplate restTemplate,
-                                @Value("${bff.region.api.url}") String BFF_REGION_API_URL){
-        this.restTemplate = restTemplate;
+    public RegionContentAdapter(final RestClient restClient,
+                                @Value("${bff.region.api.url}") final String BFF_REGION_API_URL){
+        super(restClient);
         this.BFF_REGION_API_URL = BFF_REGION_API_URL;
     }
 
     @Override
-    public RegionContent findRegionContentByUf(String uf) throws URISyntaxException {
-        log.info(this.BFF_REGION_API_URL + uf);
-        var uri = new URI(this.BFF_REGION_API_URL + uf);
-
-        var response = this.restTemplate.exchange(
-                uri,
-                HttpMethod.GET,
-                null,
-                RegionContent.class
-            );
-
-        return response.getBody();
+    public RegionContent findRegionContentByUf(final String uf) throws URISyntaxException {
+        var uri = new URI(String.format("%s%s", this.BFF_REGION_API_URL, uf));
+        return this.get(uri, RegionContent.class);
     }
 }
