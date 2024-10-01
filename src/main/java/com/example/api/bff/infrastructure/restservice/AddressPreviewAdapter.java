@@ -23,7 +23,7 @@ public class AddressPreviewAdapter extends RestClientAdapter implements AddressP
     }
 
     @Override
-    public AddressPreview findAddressPreviewByCep(String cep) throws URISyntaxException {
+    public AddressPreview findAddressPreviewByCep(final String cep) throws URISyntaxException {
         var uri = new URI(String.format("%s%s", this.BFF_ADDRESS_API_URL, cep));
         return this.get(uri, AddressPreview.class);
     }
